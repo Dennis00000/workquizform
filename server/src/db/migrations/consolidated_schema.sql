@@ -19,13 +19,16 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE IF NOT EXISTS profiles (
   id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
   name TEXT,
-  email TEXT UNIQUE NOT NULL,
+  email TEXT,
   avatar_url TEXT,
   role TEXT DEFAULT 'user',
   status TEXT DEFAULT 'active',
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+
+-- Add avatar_url column if it doesn't exist (for existing installations)
+ALTER TABLE profiles ADD COLUMN IF NOT EXISTS avatar_url TEXT;
 
 -- Categories table
 CREATE TABLE IF NOT EXISTS categories (
@@ -51,7 +54,7 @@ CREATE TABLE IF NOT EXISTS templates (
   tags JSONB DEFAULT '[]'::jsonb
 );
 
--- Create index for faster searching
+-- Create indexes for templates
 CREATE INDEX IF NOT EXISTS templates_title_idx ON templates USING gin(to_tsvector('english', title));
 CREATE INDEX IF NOT EXISTS templates_description_idx ON templates USING gin(to_tsvector('english', description));
 CREATE INDEX IF NOT EXISTS templates_user_id_idx ON templates(user_id);
@@ -62,15 +65,16 @@ CREATE TABLE IF NOT EXISTS questions (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
   template_id UUID REFERENCES templates(id) ON DELETE CASCADE,
   text TEXT NOT NULL,
-  type TEXT NOT NULL CHECK (type IN ('text', 'number', 'choice', 'multiple_choice', 'date', 'scale', 'file')),
-  options JSONB DEFAULT NULL,
-  is_required BOOLEAN DEFAULT false,
-  position INTEGER NOT NULL,
+  type TEXT NOT NULL,
+  options JSONB DEFAULT '[]'::jsonb,
+  required BOOLEAN DEFAULT false,
+  order_index INTEGER DEFAULT 0,
+  position INTEGER DEFAULT 0, -- Adding position column for compatibility
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create index for faster template question lookup
+-- Create index for faster question lookup
 CREATE INDEX IF NOT EXISTS questions_template_id_idx ON questions(template_id);
 CREATE INDEX IF NOT EXISTS questions_position_idx ON questions(position);
 
@@ -123,24 +127,28 @@ BEGIN
    NEW.updated_at = CURRENT_TIMESTAMP;
    RETURN NEW;
 END;
-$$ language 'plpgsql';
+$$ LANGUAGE plpgsql;
 
 -- Triggers to automatically update the updated_at column
+DROP TRIGGER IF EXISTS update_profiles_updated_at ON profiles;
 CREATE TRIGGER update_profiles_updated_at
   BEFORE UPDATE ON profiles
   FOR EACH ROW
   EXECUTE PROCEDURE update_updated_at_column();
 
+DROP TRIGGER IF EXISTS update_templates_updated_at ON templates;
 CREATE TRIGGER update_templates_updated_at
   BEFORE UPDATE ON templates
   FOR EACH ROW
   EXECUTE PROCEDURE update_updated_at_column();
 
+DROP TRIGGER IF EXISTS update_questions_updated_at ON questions;
 CREATE TRIGGER update_questions_updated_at
   BEFORE UPDATE ON questions
   FOR EACH ROW
   EXECUTE PROCEDURE update_updated_at_column();
 
+DROP TRIGGER IF EXISTS update_submissions_updated_at ON submissions;
 CREATE TRIGGER update_submissions_updated_at
   BEFORE UPDATE ON submissions
   FOR EACH ROW

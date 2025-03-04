@@ -1,4 +1,4 @@
--- Create RPC functions for likes
+-- Function to increment template likes count
 CREATE OR REPLACE FUNCTION increment_template_likes(template_id UUID)
 RETURNS void AS $$
 BEGIN
@@ -8,6 +8,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Function to decrement template likes count
 CREATE OR REPLACE FUNCTION decrement_template_likes(template_id UUID)
 RETURNS void AS $$
 BEGIN
@@ -17,7 +18,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Create RPC functions for comments
+-- Function to increment template comments count
 CREATE OR REPLACE FUNCTION increment_template_comments(template_id UUID)
 RETURNS void AS $$
 BEGIN
@@ -27,6 +28,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- Function to decrement template comments count
 CREATE OR REPLACE FUNCTION decrement_template_comments(template_id UUID)
 RETURNS void AS $$
 BEGIN
@@ -36,7 +38,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Create RPC function for incrementing view count
+-- Function to increment template view count
 CREATE OR REPLACE FUNCTION increment_view_count(template_id UUID)
 RETURNS void AS $$
 BEGIN
@@ -46,7 +48,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- Create RPC function to create a user profile
+-- Function to create or update user profile
 CREATE OR REPLACE FUNCTION create_user_profile(
   user_id UUID,
   user_email TEXT,
@@ -55,14 +57,14 @@ CREATE OR REPLACE FUNCTION create_user_profile(
 DECLARE
   profile_exists BOOLEAN;
 BEGIN
-  -- Check if profile already exists
+  -- Check if profile exists
   SELECT EXISTS(
     SELECT 1 FROM profiles
     WHERE id = user_id
   ) INTO profile_exists;
   
   IF profile_exists THEN
-    -- Profile already exists, update it
+    -- Update existing profile
     UPDATE profiles
     SET 
       name = COALESCE(user_name, name),
@@ -85,6 +87,7 @@ BEGIN
   END IF;
   
 EXCEPTION WHEN OTHERS THEN
+  RAISE LOG 'Error in create_user_profile: %', SQLERRM;
   RETURN FALSE;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER; 

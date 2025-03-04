@@ -10,54 +10,53 @@ class TemplateController {
    */
   async getTemplates(req, res, next) {
     try {
-      const { 
-        topic, 
-        is_public, 
-        user_id, 
-        sort_by = 'created_at', 
-        sort_order = 'desc',
-        limit = 10,
-        offset = 0
-      } = req.query;
+      const { topic, is_public, user_id, search, sort_by, sort_order, limit = 10, page = 1 } = req.query;
       
-      // Build the query
+      // Calculate offset for pagination
+      const offset = (page - 1) * limit;
+      
+      // Start building the query
       let query = supabase
         .from('templates')
-        .select('*, profiles:user_id(name, avatar_url)', { count: 'exact' })
-        .order(sort_by, { ascending: sort_order === 'asc' })
-        .range(offset, offset + limit - 1);
+        .select('*, profiles:user_id(id, name, email)', { count: 'exact' })
+        .order(sort_by || 'created_at', { ascending: sort_order === 'asc' });
       
       // Apply filters if provided
-      if (topic) {
-        query = query.eq('topic', topic);
+      if (topic) query = query.eq('topic', topic);
+      if (is_public !== undefined) query = query.eq('is_public', is_public === 'true');
+      if (user_id) query = query.eq('user_id', user_id);
+      
+      // Apply search if provided
+      if (search) {
+        query = query.or(`title.ilike.%${search}%, description.ilike.%${search}%`);
       }
       
-      if (is_public !== undefined) {
-        query = query.eq('is_public', is_public === 'true');
-      }
-      
-      if (user_id) {
-        query = query.eq('user_id', user_id);
-      }
+      // Apply pagination
+      query = query.range(offset, offset + limit - 1);
       
       // Execute the query
       const { data, error, count } = await query;
       
-      if (error) {
-        return next(new AppError(error.message, 500));
-      }
+      if (error) return next(new AppError(error.message, 500));
       
-      // Transform the data to include empty tags array if needed
-      const transformedData = data.map(template => ({
+      // Transform the data to include user info and ensure tags is an array
+      const templates = data.map(template => ({
         ...template,
-        tags: template.tags || []
+        user: {
+          id: template.profiles?.id,
+          name: template.profiles?.name || 'Unknown User',
+          email: template.profiles?.email,
+          avatar_url: template.profiles?.avatar_url || null
+        },
+        tags: template.tags || [],
+        profiles: undefined // Remove the profiles object
       }));
       
       res.status(200).json({
         status: 'success',
-        results: transformedData.length,
-        count,
-        data: transformedData
+        results: templates.length,
+        total: count,
+        data: templates
       });
     } catch (error) {
       next(new AppError(error.message, 500));
@@ -71,11 +70,12 @@ class TemplateController {
     try {
       const { id } = req.params;
       
+      // Get the template with its questions
       const { data, error } = await supabase
         .from('templates')
         .select(`
           *,
-          profiles:user_id(name, avatar_url),
+          profiles:user_id(id, name, email),
           questions(*)
         `)
         .eq('id', id)
@@ -88,15 +88,22 @@ class TemplateController {
         return next(new AppError(error.message, 500));
       }
       
-      // Ensure tags is an array
-      const transformedData = {
+      // Transform the data to include user info
+      const template = {
         ...data,
-        tags: data.tags || []
+        user: {
+          id: data.profiles?.id,
+          name: data.profiles?.name || 'Unknown User',
+          email: data.profiles?.email,
+          avatar_url: data.profiles?.avatar_url || null
+        },
+        tags: data.tags || [],
+        profiles: undefined // Remove the profiles object
       };
       
       res.status(200).json({
         status: 'success',
-        data: transformedData
+        data: template
       });
     } catch (error) {
       next(new AppError(error.message, 500));
@@ -108,7 +115,7 @@ class TemplateController {
    */
   async createTemplate(req, res, next) {
     try {
-      const { title, description, is_public, topic, questions, tags } = req.body;
+      const { title, description, is_public, tags = [] } = req.body;
       const user_id = req.user.id;
       
       // Validate required fields
@@ -117,52 +124,20 @@ class TemplateController {
       }
       
       // Create the template
-      const { data: template, error: templateError } = await supabase
+      const { data: template, error } = await supabase
         .from('templates')
         .insert({
           title,
           description,
-          is_public,
-          topic,
-          user_id
+          user_id,
+          is_public: is_public || false,
+          tags: tags || []
         })
         .select()
         .single();
-        
-      if (templateError) {
-        return next(new AppError(templateError.message, 500));
-      }
       
-      // Add questions if provided
-      if (questions && questions.length > 0) {
-        const questionsWithTemplateId = questions.map(question => ({
-          ...question,
-          template_id: template.id
-        }));
-        
-        const { error: questionsError } = await supabase
-          .from('questions')
-          .insert(questionsWithTemplateId);
-          
-        if (questionsError) {
-          return next(new AppError(questionsError.message, 500));
-        }
-      }
-      
-      // Add tags if provided
-      if (tags && tags.length > 0) {
-        const tagLinks = tags.map(tag_id => ({
-          template_id: template.id,
-          tag_id
-        }));
-        
-        const { error: tagsError } = await supabase
-          .from('template_tags')
-          .insert(tagLinks);
-          
-        if (tagsError) {
-          return next(new AppError(tagsError.message, 500));
-        }
+      if (error) {
+        return next(new AppError(error.message, 500));
       }
       
       res.status(201).json({
@@ -180,16 +155,16 @@ class TemplateController {
   async updateTemplate(req, res, next) {
     try {
       const { id } = req.params;
-      const { title, description, is_public, topic, questions, tags } = req.body;
+      const { title, description, is_public, tags = [] } = req.body;
       const user_id = req.user.id;
       
       // Check if template exists and belongs to user
       const { data: existingTemplate, error: checkError } = await supabase
         .from('templates')
-        .select('*')
+        .select('user_id')
         .eq('id', id)
         .single();
-        
+      
       if (checkError) {
         if (checkError.code === 'PGRST116') {
           return next(new AppError('Template not found', 404));
@@ -197,83 +172,26 @@ class TemplateController {
         return next(new AppError(checkError.message, 500));
       }
       
-      // Check ownership
       if (existingTemplate.user_id !== user_id) {
         return next(new AppError('You do not have permission to update this template', 403));
       }
       
       // Update the template
-      const { data: template, error: templateError } = await supabase
+      const { data: template, error } = await supabase
         .from('templates')
         .update({
           title,
           description,
           is_public,
-          topic,
-          updated_at: new Date()
+          tags: tags || [],
+          updated_at: new Date().toISOString()
         })
         .eq('id', id)
         .select()
         .single();
-        
-      if (templateError) {
-        return next(new AppError(templateError.message, 500));
-      }
       
-      // Update questions if provided
-      if (questions && questions.length > 0) {
-        // First delete existing questions
-        const { error: deleteError } = await supabase
-          .from('questions')
-          .delete()
-          .eq('template_id', id);
-          
-        if (deleteError) {
-          return next(new AppError(deleteError.message, 500));
-        }
-        
-        // Then insert new questions
-        const questionsWithTemplateId = questions.map(question => ({
-          ...question,
-          template_id: id
-        }));
-        
-        const { error: questionsError } = await supabase
-          .from('questions')
-          .insert(questionsWithTemplateId);
-          
-        if (questionsError) {
-          return next(new AppError(questionsError.message, 500));
-        }
-      }
-      
-      // Update tags if provided
-      if (tags) {
-        // First delete existing tag links
-        const { error: deleteTagsError } = await supabase
-          .from('template_tags')
-          .delete()
-          .eq('template_id', id);
-          
-        if (deleteTagsError) {
-          return next(new AppError(deleteTagsError.message, 500));
-        }
-        
-        // Then insert new tag links
-        if (tags.length > 0) {
-          const tagLinks = tags.map(tag_id => ({
-            template_id: id,
-            tag_id
-          }));
-          
-          const { error: tagsError } = await supabase
-            .from('template_tags')
-            .insert(tagLinks);
-            
-          if (tagsError) {
-            return next(new AppError(tagsError.message, 500));
-          }
-        }
+      if (error) {
+        return next(new AppError(error.message, 500));
       }
       
       res.status(200).json({

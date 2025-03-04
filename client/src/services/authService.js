@@ -51,6 +51,26 @@ const authService = {
       try {
         console.log('Attempting to create profile for user:', data.user.id);
         
+        // Try direct RPC call first - most reliable method
+        try {
+          const { error: rpcError } = await supabase.rpc('create_user_profile', {
+            user_id: data.user.id,
+            user_email: email,
+            user_name: metadata.name || ''
+          });
+          
+          if (rpcError) {
+            console.error('Error creating profile via RPC:', rpcError.message);
+            // Fall back to direct insert if RPC fails
+          } else {
+            console.log('Profile created via RPC successfully');
+            return data;
+          }
+        } catch (rpcErr) {
+          console.error('Exception in RPC profile creation:', rpcErr.message);
+          // Continue to fallback methods
+        }
+        
         // Check if profile already exists
         const { data: existingProfile, error: profileCheckError } = await supabase
           .from('profiles')
@@ -100,22 +120,6 @@ const authService = {
               
             if (upsertError) {
               console.error('Error upserting profile:', upsertError.message);
-              // Try one more approach - direct RPC call
-              try {
-                const { error: rpcError } = await supabase.rpc('create_user_profile', {
-                  user_id: data.user.id,
-                  user_email: email,
-                  user_name: metadata.name || ''
-                });
-                
-                if (rpcError) {
-                  console.error('Error creating profile via RPC:', rpcError.message);
-                } else {
-                  console.log('Profile created via RPC successfully');
-                }
-              } catch (rpcErr) {
-                console.error('Exception in RPC profile creation:', rpcErr.message);
-              }
             } else {
               console.log('Profile upserted successfully');
             }
@@ -125,7 +129,7 @@ const authService = {
         }
       } catch (profileErr) {
         console.warn('Failed to create profile manually:', profileErr.message);
-        // Continue anyway - the trigger might have created the profile
+        // Continue anyway - the user was created successfully
       }
       
       return data;

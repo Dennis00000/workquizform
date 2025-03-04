@@ -1,52 +1,98 @@
-const { supabase } = require('../lib/supabase');
-const { verifySchema, applyMigration } = require('./verify-schema');
+const fs = require('fs');
 const path = require('path');
-const fs = require('fs').promises;
+const { pool } = require('./pool');
+const logger = require('../utils/logger');
 
-/**
- * Initialize the database with the required schema and seed data
- */
+// Function to split SQL into individual statements
+function splitSqlStatements(sql) {
+  // Remove comments and empty lines
+  const cleanedSql = sql
+    .replace(/--.*$/gm, '') // Remove single-line comments
+    .replace(/\/\*[\s\S]*?\*\//g, '') // Remove multi-line comments
+    .trim();
+
+  // Split by semicolons, but respect dollar-quoted strings
+  const statements = [];
+  let currentStatement = '';
+  let inDollarQuote = false;
+  let dollarTag = '';
+
+  for (let i = 0; i < cleanedSql.length; i++) {
+    const char = cleanedSql[i];
+    const nextChar = cleanedSql[i + 1] || '';
+    
+    // Check for dollar quote start/end
+    if (char === '$' && nextChar === '$') {
+      if (!inDollarQuote) {
+        inDollarQuote = true;
+        dollarTag = '$$';
+      } else if (inDollarQuote && dollarTag === '$$') {
+        inDollarQuote = false;
+      }
+      currentStatement += char;
+    } 
+    // Check for semicolon outside of dollar quotes
+    else if (char === ';' && !inDollarQuote) {
+      statements.push(currentStatement.trim() + ';');
+      currentStatement = '';
+    } 
+    // Add character to current statement
+    else {
+      currentStatement += char;
+    }
+  }
+
+  // Add the last statement if it exists and doesn't end with semicolon
+  if (currentStatement.trim()) {
+    statements.push(currentStatement.trim() + (currentStatement.trim().endsWith(';') ? '' : ';'));
+  }
+
+  // Filter out empty statements
+  return statements.filter(stmt => stmt.trim() !== ';');
+}
+
 async function initializeDatabase() {
   try {
-    console.log('Initializing database...');
+    logger.info('Initializing database...');
     
-    // Read the consolidated schema file
+    // Read schema SQL file
     const schemaPath = path.join(__dirname, 'migrations', 'consolidated_schema.sql');
-    const schemaSql = await fs.readFile(schemaPath, 'utf8');
+    const schemaSql = fs.readFileSync(schemaPath, 'utf8');
     
-    // Split the SQL into individual statements
-    // This regex handles SQL statements properly, including those with semicolons in strings or comments
-    const statements = schemaSql
-      .replace(/\/\*[\s\S]*?\*\//g, '') // Remove multi-line comments
-      .replace(/--.*$/gm, '') // Remove single-line comments
-      .split(';')
-      .map(stmt => stmt.trim())
-      .filter(stmt => stmt.length > 0);
+    // Read RPC functions SQL file
+    const rpcPath = path.join(__dirname, 'migrations', 'create_rpc_functions.sql');
+    const rpcSql = fs.readFileSync(rpcPath, 'utf8');
     
-    // Execute each statement individually
+    // Combine SQL files
+    const combinedSql = schemaSql + '\n' + rpcSql;
+    
+    // Split into individual statements
+    const statements = splitSqlStatements(combinedSql);
+    
+    logger.info(`Found ${statements.length} SQL statements to execute`);
+    
+    // Execute each statement
+    let successCount = 0;
+    let errorCount = 0;
+    
     for (const statement of statements) {
+      if (!statement.trim()) continue;
+      
       try {
-        const { error } = await supabase.rpc('run_sql', { sql: statement });
-        if (error) {
-          console.error(`Error executing SQL statement: ${error.message}`);
-          console.error('Statement:', statement);
-          // Continue with other statements instead of failing completely
-        }
+        await pool.query(statement);
+        successCount++;
       } catch (err) {
-        console.error(`Error executing SQL statement: ${err.message}`);
-        console.error('Statement:', statement);
-        // Continue with other statements
+        errorCount++;
+        logger.error(`Error executing SQL statement: ${err.message}`);
+        logger.error(`Statement: ${statement.substring(0, 100)}${statement.length > 100 ? '...' : ''}`);
       }
     }
     
-    console.log('Database initialization completed successfully');
-    return true;
+    logger.info(`Database initialization completed with ${successCount} successful statements and ${errorCount} errors`);
   } catch (error) {
-    console.error('Database initialization failed:', error);
-    return false;
+    logger.error('Failed to initialize database:', error);
+    throw error;
   }
 }
 
-module.exports = {
-  initializeDatabase
-}; 
+module.exports = { initializeDatabase }; 
