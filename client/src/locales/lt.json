@@ -1,0 +1,209 @@
+{
+  "appName": "QuizForm",
+  "common": {
+    "login": "Prisijungti",
+    "logout": "Atsijungti",
+    "register": "Registruotis",
+    "profile": "Profilis",
+    "save": "Išsaugoti",
+    "cancel": "Atšaukti",
+    "saving": "Išsaugoma...",
+    "loading": "Kraunama...",
+    "welcome": "Sveiki atvykę į QuizForm",
+    "lightMode": "Šviesi tema",
+    "darkMode": "Tamsi tema",
+    "home": "Pagrindinis",
+    "error": "Įvyko klaida",
+    "backToHome": "Grįžti į pagrindinį",
+    "close": "Uždaryti",
+    "searchUsers": "Ieškoti vartotojų pagal vardą arba el. paštą",
+    "delete": "Ištrinti",
+    "edit": "Redaguoti",
+    "create": "Sukurti",
+    "submit": "Pateikti",
+    "search": "Paieška",
+    "filter": "Filtras",
+    "reset": "Atstatyti",
+    "yes": "Taip",
+    "no": "Ne",
+    "success": "Sėkmė",
+    "warning": "Įspėjimas",
+    "info": "Informacija",
+    "required": "Privaloma",
+    "optional": "Neprivaloma",
+    "back": "Atgal",
+    "next": "Toliau",
+    "previous": "Ankstesnis",
+    "actions": "Veiksmai"
+  },
+  "search": {
+    "placeholder": "Ieškoti šablonų...",
+    "results": "Rasta rezultatų: {{count}}",
+    "noResults": "Rezultatų nerasta",
+    "error": "Nepavyko atlikti paieškos"
+  },
+  "home": {
+    "hero": {
+      "title": "Sukurkite interaktyvias formas per kelias minutes",
+      "subtitle": "Kurkite, dalinkitės ir analizuokite individualizuotas formas bet kokiam tikslui",
+      "cta": "Pradėti nemokamai"
+    },
+    "features": {
+      "title": "Funkcijos",
+      "subtitle": "Viskas, ko reikia įspūdingoms formoms kurti",
+      "feature1": {
+        "title": "Paprasta naudoti",
+        "description": "Intuityvus tempimo ir paleidimo sąsaja formoms kurti be pastangų"
+      },
+      "feature2": {
+        "title": "Pritaikomi šablonai",
+        "description": "Rinkitės iš dešimčių šablonų arba sukurkite savo"
+      },
+      "feature3": {
+        "title": "Realaus laiko analizė",
+        "description": "Gaukite vertingų įžvalgų iš išsamios atsakymų analizės"
+      }
+    }
+  },
+  "auth": {
+    "loginTitle": "Prisijunkite prie savo paskyros",
+    "registerTitle": "Sukurti naują paskyrą",
+    "forgotPassword": "Pamiršote slaptažodį?",
+    "resetPassword": "Atstatyti slaptažodį",
+    "noAccount": "Neturite paskyros?",
+    "alreadyAccount": "Jau turite paskyrą?",
+    "emailLabel": "El. paštas",
+    "passwordLabel": "Slaptažodis",
+    "confirmPasswordLabel": "Patvirtinti slaptažodį",
+    "nameLabel": "Vardas",
+    "resetInstructions": "Įveskite savo el. paštą ir mes atsiųsime jums instrukcijas, kaip atstatyti slaptažodį.",
+    "resetSuccess": "Slaptažodžio atstatymo instrukcijos išsiųstos į jūsų el. paštą.",
+    "newPasswordLabel": "Naujas slaptažodis",
+    "updatePasswordButton": "Atnaujinti slaptažodį",
+    "passwordsMustMatch": "Slaptažodžiai turi sutapti",
+    "passwordRequirements": "Slaptažodis turi būti bent 8 simbolių ilgio ir turėti bent vieną didžiąją raidę, mažąją raidę ir skaičių"
+  },
+  "navbar": {
+    "templates": "Šablonai",
+    "about": "Apie",
+    "dashboard": "Valdymo skydelis",
+    "profile": "Profilis",
+    "admin": "Administratorius",
+    "login": "Prisijungti",
+    "register": "Registruotis",
+    "logout": "Atsijungti"
+  },
+  "sidebar": {
+    "menu": "Meniu",
+    "dashboard": "Valdymo skydelis",
+    "templates": "Mano šablonai",
+    "createTemplate": "Sukurti šabloną",
+    "submissions": "Pateikimai",
+    "profile": "Profilis",
+    "admin": "Administratoriaus skydelis"
+  },
+  "footer": {
+    "about": "Apie",
+    "privacy": "Privatumo politika",
+    "terms": "Naudojimo sąlygos",
+    "contact": "Kontaktai",
+    "allRightsReserved": "Visos teisės saugomos."
+  },
+  "notFound": {
+    "title": "Puslapis nerastas",
+    "message": "Puslapis, kurio ieškote, galbūt buvo ištrintas, pakeitė pavadinimą arba laikinai nepasiekiamas.",
+    "goHome": "Eiti į pagrindinį puslapį",
+    "contactSupport": "Susisiekti su pagalba"
+  },
+  "dashboard": {
+    "welcome": "Sveiki, {name}!",
+    "recentTemplates": "Naujausi šablonai",
+    "recentSubmissions": "Naujausi pateikimai",
+    "stats": {
+      "title": "Statistika",
+      "templates": "Šablonai",
+      "submissions": "Pateikimai",
+      "views": "Peržiūros"
+    },
+    "noTemplates": "Dar neturite šablonų. Sukurkite savo pirmąjį šabloną!",
+    "noSubmissions": "Dar neturite pateikimų."
+  },
+  "templates": {
+    "title": "Mano šablonai",
+    "createNew": "Sukurti naują šabloną",
+    "search": "Ieškoti šablonų",
+    "filter": "Filtruoti",
+    "sort": "Rūšiuoti",
+    "noTemplates": "Šablonų nerasta",
+    "titleLabel": "Pavadinimas",
+    "descriptionLabel": "Aprašymas",
+    "categoryLabel": "Kategorija",
+    "isPublicLabel": "Viešas",
+    "createdAt": "Sukurta",
+    "updatedAt": "Atnaujinta",
+    "deleteConfirm": "Ar tikrai norite ištrinti šį šabloną?",
+    "deleteSuccess": "Šablonas sėkmingai ištrintas",
+    "deleteError": "Klaida trinant šabloną",
+    "saveSuccess": "Šablonas sėkmingai išsaugotas",
+    "saveError": "Klaida išsaugant šabloną",
+    "titleRequired": "Pavadinimas yra privalomas",
+    "urlCopied": "URL nukopijuotas į iškarpinę",
+    "urlCopyError": "Nepavyko nukopijuoti URL"
+  },
+  "submissions": {
+    "title": "Pateikimai",
+    "noSubmissions": "Pateikimų nerasta",
+    "search": "Ieškoti pateikimų",
+    "filter": "Filtruoti",
+    "sort": "Rūšiuoti",
+    "template": "Šablonas",
+    "submitter": "Pateikėjas",
+    "submittedAt": "Pateikta",
+    "status": "Būsena",
+    "viewDetails": "Žiūrėti detales",
+    "deleteConfirm": "Ar tikrai norite ištrinti šį pateikimą?",
+    "deleteSuccess": "Pateikimas sėkmingai ištrintas",
+    "deleteError": "Klaida trinant pateikimą"
+  },
+  "profile": {
+    "title": "Profilis",
+    "personalInfo": "Asmeninė informacija",
+    "nameLabel": "Vardas",
+    "emailLabel": "El. paštas",
+    "bioLabel": "Apie mane",
+    "updateSuccess": "Profilis sėkmingai atnaujintas",
+    "updateError": "Klaida atnaujinant profilį",
+    "changePassword": "Keisti slaptažodį",
+    "currentPasswordLabel": "Dabartinis slaptažodis",
+    "newPasswordLabel": "Naujas slaptažodis",
+    "confirmPasswordLabel": "Patvirtinti naują slaptažodį",
+    "passwordUpdateSuccess": "Slaptažodis sėkmingai atnaujintas",
+    "passwordUpdateError": "Klaida atnaujinant slaptažodį",
+    "deleteAccount": "Ištrinti paskyrą",
+    "deleteConfirm": "Ar tikrai norite ištrinti savo paskyrą? Šis veiksmas negrįžtamas.",
+    "deleteSuccess": "Paskyra sėkmingai ištrinta",
+    "deleteError": "Klaida trinant paskyrą"
+  },
+  "admin": {
+    "title": "Administratoriaus skydelis",
+    "users": "Vartotojai",
+    "templates": "Šablonai",
+    "submissions": "Pateikimai",
+    "settings": "Nustatymai",
+    "logs": "Žurnalai",
+    "stats": "Statistika",
+    "totalUsers": "Iš viso vartotojų",
+    "totalTemplates": "Iš viso šablonų",
+    "totalSubmissions": "Iš viso pateikimų",
+    "activeUsers": "Aktyvūs vartotojai",
+    "recentActivity": "Naujausia veikla"
+  },
+  "errors": {
+    "general": "Įvyko klaida. Bandykite dar kartą.",
+    "network": "Tinklo klaida. Patikrinkite savo ryšį.",
+    "unauthorized": "Jūs neturite teisių atlikti šį veiksmą.",
+    "notFound": "Prašomas išteklius nerastas.",
+    "validation": "Patikrinkite savo įvestis ir bandykite dar kartą.",
+    "server": "Serverio klaida. Bandykite vėliau."
+  }
+} 

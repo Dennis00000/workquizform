@@ -1,0 +1,25 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password"
+  },
+  "templates": {
+    "create": "Create Template",
+    "edit": "Edit Template",
+    "title": "Title",
+    "description": "Description",
+    "topic": "Topic",
+    "questions": "Questions"
+  }
+} 

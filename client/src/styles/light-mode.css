@@ -1,0 +1,109 @@
+/* Light Mode Enhancements */
+
+/* Improve text contrast in light mode */
+@media (prefers-color-scheme: light), (class: light) {
+  body {
+    color: #1a202c; /* Darker text for better contrast */
+    background-color: #f7fafc; /* Slightly off-white background */
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: #1a202c; /* Ensure headings are dark enough */
+  }
+
+  /* Paragraph text */
+  p {
+    color: #2d3748; /* Dark enough for good readability */
+  }
+
+  /* Links */
+  a {
+    color: #3182ce; /* Accessible blue */
+  }
+  
+  a:hover {
+    color: #2c5282; /* Darker blue on hover */
+  }
+
+  /* Input fields */
+  input, textarea, select {
+    background-color: #ffffff;
+    border-color: #cbd5e0;
+    color: #1a202c;
+  }
+
+  /* Cards and containers */
+  .bg-white {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  /* Improve contrast for gray text */
+  .text-gray-500 {
+    color: #4a5568 !important; /* Darker gray for better readability */
+  }
+
+  .text-gray-600 {
+    color: #2d3748 !important; /* Even darker gray */
+  }
+
+  .text-gray-700 {
+    color: #1a202c !important; /* Very dark gray, almost black */
+  }
+
+  /* Buttons */
+  button.bg-gray-200 {
+    background-color: #edf2f7; /* Slightly darker background */
+    color: #1a202c; /* Ensure text is dark enough */
+  }
+
+  /* Tables */
+  table {
+    border-color: #e2e8f0;
+  }
+
+  th {
+    background-color: #f7fafc;
+    color: #1a202c;
+  }
+
+  td {
+    color: #2d3748;
+  }
+  
+  /* Additional enhancements for better visibility */
+  .text-gray-800 {
+    color: #1a202c !important; /* Ensure dark enough for light mode */
+  }
+  
+  /* Template card specific improvements */
+  .bg-gray-100 {
+    background-color: #f3f4f6 !important; /* Slightly darker for better contrast */
+  }
+  
+  /* Improve link contrast in light mode */
+  .text-blue-600 {
+    color: #2563eb !important; /* Darker blue for better visibility */
+  }
+  
+  /* Improve button contrast */
+  .text-indigo-600, .text-indigo-700 {
+    color: #4338ca !important; /* Darker indigo for better visibility */
+  }
+  
+  /* Improve tag contrast */
+  .bg-primary-100 {
+    background-color: #e0e7ff !important; /* Slightly darker background */
+  }
+  
+  .text-primary-800 {
+    color: #3730a3 !important; /* Darker text for better visibility */
+  }
+  
+  /* Template section headings */
+  .text-2xl.font-bold {
+    color: #1a202c !important; /* Ensure section headings are dark enough */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Add subtle shadow for better readability */
+  }
+} 

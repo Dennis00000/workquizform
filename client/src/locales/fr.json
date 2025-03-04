@@ -1,0 +1,120 @@
+{
+  "appName": "QuizForm",
+  "common": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "register": "S'inscrire",
+    "profile": "Profil",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "saving": "Enregistrement...",
+    "loading": "Chargement...",
+    "welcome": "Bienvenue sur QuizForm",
+    "lightMode": "Mode clair",
+    "darkMode": "Mode sombre",
+    "home": "Accueil",
+    "error": "Une erreur s'est produite",
+    "backToHome": "Retour à l'accueil",
+    "close": "Fermer",
+    "searchUsers": "Rechercher des utilisateurs par nom ou email",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "submit": "Soumettre",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "reset": "Réinitialiser",
+    "yes": "Oui",
+    "no": "Non",
+    "success": "Succès",
+    "warning": "Avertissement",
+    "info": "Information",
+    "required": "Obligatoire",
+    "optional": "Optionnel",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "actions": "Actions"
+  },
+  "home": {
+    "hero": {
+      "title": "Créez des formulaires interactifs en quelques minutes",
+      "subtitle": "Concevez, partagez et analysez des formulaires personnalisés pour n'importe quel objectif",
+      "cta": "Commencer gratuitement"
+    },
+    "features": {
+      "title": "Fonctionnalités",
+      "subtitle": "Tout ce dont vous avez besoin pour créer des formulaires impressionnants",
+      "feature1": {
+        "title": "Facile à utiliser",
+        "description": "Interface intuitive de glisser-déposer pour créer des formulaires sans effort"
+      },
+      "feature2": {
+        "title": "Modèles personnalisables",
+        "description": "Choisissez parmi des dizaines de modèles ou créez les vôtres"
+      },
+      "feature3": {
+        "title": "Analyse en temps réel",
+        "description": "Obtenez des informations précieuses grâce à des analyses détaillées des réponses"
+      }
+    }
+  },
+  "auth": {
+    "loginTitle": "Connectez-vous à votre compte",
+    "registerTitle": "Créer un nouveau compte",
+    "forgotPassword": "Mot de passe oublié ?",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "alreadyAccount": "Vous avez déjà un compte ?",
+    "emailLabel": "Adresse e-mail",
+    "passwordLabel": "Mot de passe",
+    "confirmPasswordLabel": "Confirmer le mot de passe",
+    "nameLabel": "Nom",
+    "resetInstructions": "Entrez votre adresse e-mail et nous vous enverrons les instructions pour réinitialiser votre mot de passe.",
+    "resetSuccess": "Les instructions de réinitialisation ont été envoyées à votre adresse e-mail.",
+    "newPasswordLabel": "Nouveau mot de passe",
+    "updatePasswordButton": "Mettre à jour le mot de passe",
+    "passwordsMustMatch": "Les mots de passe doivent correspondre",
+    "passwordRequirements": "Le mot de passe doit comporter au moins 8 caractères et inclure une lettre majuscule, une lettre minuscule et un chiffre"
+  },
+  "navbar": {
+    "templates": "Modèles",
+    "about": "À propos",
+    "dashboard": "Tableau de bord",
+    "profile": "Profil",
+    "admin": "Admin",
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "logout": "Déconnexion"
+  },
+  "sidebar": {
+    "menu": "Menu",
+    "dashboard": "Tableau de bord",
+    "templates": "Mes modèles",
+    "createTemplate": "Créer un modèle",
+    "submissions": "Soumissions",
+    "profile": "Profil",
+    "admin": "Panneau d'administration"
+  },
+  "footer": {
+    "about": "À propos",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "contact": "Contact",
+    "allRightsReserved": "Tous droits réservés."
+  },
+  "notFound": {
+    "title": "Page non trouvée",
+    "message": "La page que vous recherchez a peut-être été supprimée, a changé de nom ou est temporairement indisponible.",
+    "goHome": "Aller à la page d'accueil",
+    "contactSupport": "Contacter le support"
+  },
+  "errors": {
+    "general": "Une erreur s'est produite. Veuillez réessayer.",
+    "network": "Erreur réseau. Veuillez vérifier votre connexion.",
+    "unauthorized": "Vous n'êtes pas autorisé à effectuer cette action.",
+    "notFound": "La ressource demandée n'a pas été trouvée.",
+    "validation": "Veuillez vérifier vos entrées et réessayer.",
+    "server": "Erreur du serveur. Veuillez réessayer plus tard."
+  }
+} 

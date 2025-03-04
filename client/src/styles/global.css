@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add these styles to your global CSS file */
+
+/* Improve text readability in light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    color: #111827; /* Darker text color for better contrast */
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #111827;
+    font-weight: 700; /* Make headings bolder */
+  }
+  
+  p, span, div, li {
+    color: #1f2937; /* Slightly darker text for better readability */
+  }
+  
+  .text-gray-500 {
+    color: #4b5563 !important; /* Darker gray text */
+  }
+  
+  .text-gray-600 {
+    color: #374151 !important; /* Even darker gray text */
+  }
+  
+  .text-gray-700 {
+    color: #1f2937 !important; /* Very dark gray text */
+  }
+  
+  /* Make form labels and buttons more readable */
+  label, button {
+    font-weight: 600;
+  }
+  
+  /* Improve link contrast */
+  a:not(.btn) {
+    font-weight: 500;
+  }
+  
+  /* Make card titles more prominent */
+  .card-title, .font-medium {
+    font-weight: 600 !important;
+  }
+  
+  /* Improve table readability */
+  th {
+    font-weight: 700;
+  }
+  
+  td {
+    font-weight: 500;
+  }
+  
+  /* Improve form input text */
+  input, select, textarea {
+    color: #111827 !important;
+    font-weight: 500;
+  }
+  
+  /* Improve placeholder text contrast */
+  ::placeholder {
+    color: #6b7280 !important;
+    opacity: 1;
+  }
+}
+
+/* Add this to ensure dark mode still works properly */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #f3f4f6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #f9fafb;
+  }
+  
+  p, span, div, li {
+    color: #e5e7eb;
+  }
+}
+
+/* Add these styles to improve readability in light mode */
+
+/* Base text colors */
+.dark {
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --text-tertiary: #9ca3af;
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --bg-tertiary: #374151;
+}
+
+:root {
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-tertiary: #6b7280;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+}
+
+/* Improve text contrast in light mode */
+body:not(.dark) {
+  color: var(--text-primary);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: var(--text-primary);
+}
+
+/* Paragraphs */
+p {
+  color: var(--text-secondary);
+}
+
+.dark p {
+  color: var(--text-secondary);
+}
+
+/* Links */
+a {
+  color: #2563eb;
+}
+
+a:hover {
+  color: #1d4ed8;
+}
+
+.dark a {
+  color: #3b82f6;
+}
+
+.dark a:hover {
+  color: #60a5fa;
+}
+
+/* Buttons */
+button {
+  font-weight: 500;
+}
+
+/* Form elements */
+input, select, textarea {
+  color: var(--text-primary);
+}
+
+.dark input, .dark select, .dark textarea {
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+}
+
+/* Card styles */
+.card {
+  background-color: var(--bg-primary);
+  border: 1px solid #e5e7eb;
+}
+
+.dark .card {
+  background-color: var(--bg-secondary);
+  border-color: #374151;
+}
+
+/* Improve text contrast in specific components */
+.text-gray-500 {
+  color: #6b7280 !important;
+}
+
+.dark .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+/* Make light mode text darker for better readability */
+.text-gray-400 {
+  color: #4b5563 !important;
+}
+
+.text-gray-300 {
+  color: #374151 !important;
+}
+
+.dark .text-gray-300 {
+  color: #d1d5db !important;
+}
+
+.dark .text-gray-500 {
+  color: #9ca3af !important;
+} 

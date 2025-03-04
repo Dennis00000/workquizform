@@ -1,0 +1,120 @@
+{
+  "appName": "QuizForm",
+  "common": {
+    "login": "Iniciar sesión",
+    "logout": "Cerrar sesión",
+    "register": "Registrarse",
+    "profile": "Perfil",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "saving": "Guardando...",
+    "loading": "Cargando...",
+    "welcome": "Bienvenido a QuizForm",
+    "lightMode": "Modo claro",
+    "darkMode": "Modo oscuro",
+    "home": "Inicio",
+    "error": "Ha ocurrido un error",
+    "backToHome": "Volver al inicio",
+    "close": "Cerrar",
+    "searchUsers": "Buscar usuarios por nombre o correo",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Crear",
+    "submit": "Enviar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "reset": "Restablecer",
+    "yes": "Sí",
+    "no": "No",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información",
+    "required": "Obligatorio",
+    "optional": "Opcional",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "actions": "Acciones"
+  },
+  "home": {
+    "hero": {
+      "title": "Crea formularios interactivos en minutos",
+      "subtitle": "Diseña, comparte y analiza formularios personalizados para cualquier propósito",
+      "cta": "Comenzar gratis"
+    },
+    "features": {
+      "title": "Características",
+      "subtitle": "Todo lo que necesitas para crear formularios increíbles",
+      "feature1": {
+        "title": "Fácil de usar",
+        "description": "Interfaz intuitiva de arrastrar y soltar para crear formularios sin esfuerzo"
+      },
+      "feature2": {
+        "title": "Plantillas personalizables",
+        "description": "Elige entre docenas de plantillas o crea las tuyas propias"
+      },
+      "feature3": {
+        "title": "Análisis en tiempo real",
+        "description": "Obtén información valiosa con análisis detallados de respuestas"
+      }
+    }
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesión en tu cuenta",
+    "registerTitle": "Crear una nueva cuenta",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "resetPassword": "Restablecer contraseña",
+    "noAccount": "¿No tienes una cuenta?",
+    "alreadyAccount": "¿Ya tienes una cuenta?",
+    "emailLabel": "Correo electrónico",
+    "passwordLabel": "Contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "nameLabel": "Nombre",
+    "resetInstructions": "Ingresa tu correo electrónico y te enviaremos instrucciones para restablecer tu contraseña.",
+    "resetSuccess": "Se han enviado las instrucciones para restablecer tu contraseña.",
+    "newPasswordLabel": "Nueva contraseña",
+    "updatePasswordButton": "Actualizar contraseña",
+    "passwordsMustMatch": "Las contraseñas deben coincidir",
+    "passwordRequirements": "La contraseña debe tener al menos 8 caracteres e incluir una letra mayúscula, una minúscula y un número"
+  },
+  "navbar": {
+    "templates": "Plantillas",
+    "about": "Acerca de",
+    "dashboard": "Panel",
+    "profile": "Perfil",
+    "admin": "Admin",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar sesión"
+  },
+  "sidebar": {
+    "menu": "Menú",
+    "dashboard": "Panel",
+    "templates": "Mis plantillas",
+    "createTemplate": "Crear plantilla",
+    "submissions": "Envíos",
+    "profile": "Perfil",
+    "admin": "Panel de administración"
+  },
+  "footer": {
+    "about": "Acerca de",
+    "privacy": "Política de privacidad",
+    "terms": "Términos de servicio",
+    "contact": "Contacto",
+    "allRightsReserved": "Todos los derechos reservados."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "La página que estás buscando puede haber sido eliminada, cambió de nombre o está temporalmente no disponible.",
+    "goHome": "Ir a la página de inicio",
+    "contactSupport": "Contactar soporte"
+  },
+  "errors": {
+    "general": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "network": "Error de red. Por favor, verifica tu conexión.",
+    "unauthorized": "No estás autorizado para realizar esta acción.",
+    "notFound": "El recurso solicitado no fue encontrado.",
+    "validation": "Por favor, verifica tu entrada e inténtalo de nuevo.",
+    "server": "Error del servidor. Por favor, inténtalo más tarde."
+  }
+} 

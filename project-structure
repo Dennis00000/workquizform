@@ -1,0 +1,32 @@
+project-root/
+├── client/                 # Frontend
+│   ├── public/
+│   └── src/
+│       ├── assets/
+│       ├── components/
+│       │   ├── auth/
+│       │   ├── common/
+│       │   ├── layout/
+│       │   └── templates/
+│       ├── contexts/
+│       ├── hooks/
+│       ├── layouts/
+│       ├── locales/
+│       ├── pages/
+│       ├── services/
+│       ├── store/
+│       └── utils/
+│           ├── App.js
+│           ├── i18n.js
+│           └── index.js
+│           └── index.css
+├── .env
+├── package.json
+└── tailwind.config.js
+└── server/                 # Backend
+    ├── config/
+    ├── controllers/
+    ├── middlewares/
+    ├── models/
+    ├── routes/
+    └── utils/ 

@@ -1,0 +1,151 @@
+{
+  "common": {
+    "loading": "Kraunama...",
+    "error": "Klaida",
+    "success": "Sėkmė",
+    "save": "Išsaugoti",
+    "cancel": "Atšaukti",
+    "delete": "Ištrinti",
+    "edit": "Redaguoti",
+    "create": "Sukurti",
+    "submit": "Pateikti",
+    "back": "Atgal",
+    "next": "Toliau",
+    "previous": "Ankstesnis",
+    "search": "Ieškoti",
+    "filter": "Filtruoti",
+    "sort": "Rūšiuoti",
+    "view": "Peržiūrėti",
+    "download": "Atsisiųsti",
+    "upload": "Įkelti",
+    "yes": "Taip",
+    "no": "Ne",
+    "confirm": "Patvirtinti",
+    "retry": "Bandyti dar kartą",
+    "viewAll": "Peržiūrėti visus šablonus",
+    "tags": "Kategorijos"
+  },
+  "auth": {
+    "login": "Prisijungti",
+    "logout": "Atsijungti",
+    "register": "Registruotis",
+    "forgotPassword": "Pamiršote slaptažodį?",
+    "resetPassword": "Atstatyti slaptažodį",
+    "email": "El. paštas",
+    "password": "Slaptažodis",
+    "confirmPassword": "Patvirtinti slaptažodį",
+    "name": "Vardas",
+    "loginSuccess": "Sėkmingai prisijungta",
+    "loginError": "Nepavyko prisijungti",
+    "registerSuccess": "Registracija sėkminga",
+    "registerError": "Nepavyko užsiregistruoti",
+    "logoutSuccess": "Sėkmingai atsijungta",
+    "resetPasswordSuccess": "Slaptažodis sėkmingai atstatytas",
+    "resetPasswordError": "Nepavyko atstatyti slaptažodžio",
+    "passwordResetEmailSent": "Slaptažodžio atstatymo nuoroda išsiųsta į jūsų el. paštą",
+    "getStarted": "Pradėti"
+  },
+  "templates": {
+    "templates": "Šablonai",
+    "template": "Šablonas",
+    "myTemplates": "Mano šablonai",
+    "publicTemplates": "Vieši šablonai",
+    "createTemplate": "Sukurti šabloną",
+    "editTemplate": "Redaguoti šabloną",
+    "deleteTemplate": "Ištrinti šabloną",
+    "templateDetails": "Šablono detalės",
+    "title": "Pavadinimas",
+    "description": "Aprašymas",
+    "content": "Turinys",
+    "category": "Kategorija",
+    "tags": "Žymos",
+    "author": "Autorius",
+    "createdAt": "Sukurta",
+    "updatedAt": "Atnaujinta",
+    "isPublic": "Viešas",
+    "useTemplate": "Naudoti šabloną",
+    "popular": "Populiarūs šablonai",
+    "latest": "Naujausi šablonai",
+    "featured": "Rekomenduojami šablonai",
+    "noTemplatesFound": "Šablonų nerasta",
+    "searchTemplates": "Ieškoti šablonų",
+    "templateCreated": "Šablonas sėkmingai sukurtas",
+    "templateUpdated": "Šablonas sėkmingai atnaujintas",
+    "templateDeleted": "Šablonas sėkmingai ištrintas",
+    "confirmDelete": "Ar tikrai norite ištrinti šį šabloną?",
+    "like": "Patinka",
+    "unlike": "Nepatinka",
+    "likeError": "Nepavyko pažymėti kaip patinkančio",
+    "create": "Sukurti šabloną",
+    "browse": "Naršyti šablonus",
+    "noPopularTemplates": "Nėra populiarių šablonų",
+    "error": {
+      "fetchFailed": "Nepavyko įkelti šablono",
+      "notFound": "Šablonas, kurio ieškote, neegzistuoja",
+      "fetchError": "Nepavyko įkelti šablonų"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Sukurkite ir dalinkitės šablonais",
+      "subtitle": "Paprasta platforma šablonų kūrimui ir dalinimusi",
+      "exploreButton": "Naršyti šablonus",
+      "createButton": "Sukurti šabloną"
+    },
+    "features": {
+      "feature1": {
+        "title": "Lengvas kūrimas",
+        "description": "Kurkite šablonus naudodami paprastą redaktorių"
+      },
+      "feature2": {
+        "title": "Dalinimasis",
+        "description": "Dalinkitės šablonais su kitais vartotojais"
+      },
+      "feature3": {
+        "title": "Pritaikymas",
+        "description": "Pritaikykite šablonus pagal savo poreikius"
+      }
+    },
+    "cta": {
+      "title": "Pradėkite kurti šiandien",
+      "subtitle": "Prisijunkite ir pradėkite kurti savo šablonus"
+    }
+  },
+  "search": {
+    "placeholder": "Ieškoti...",
+    "noResults": "Nieko nerasta",
+    "searchResults": "Paieškos rezultatai",
+    "submit": "Ieškoti"
+  },
+  "profile": {
+    "profile": "Profilis",
+    "editProfile": "Redaguoti profilį",
+    "changePassword": "Keisti slaptažodį",
+    "deleteAccount": "Ištrinti paskyrą",
+    "accountSettings": "Paskyros nustatymai",
+    "personalInfo": "Asmeninė informacija",
+    "preferences": "Nuostatos",
+    "language": "Kalba",
+    "theme": "Tema",
+    "notifications": "Pranešimai",
+    "security": "Saugumas",
+    "activity": "Veikla",
+    "savedTemplates": "Išsaugoti šablonai"
+  },
+  "validation": {
+    "required": "Šis laukas yra privalomas",
+    "email": "Neteisingas el. pašto formatas",
+    "minLength": "Turi būti bent {{count}} simbolių",
+    "maxLength": "Negali būti daugiau nei {{count}} simbolių",
+    "passwordMatch": "Slaptažodžiai turi sutapti",
+    "invalidPassword": "Slaptažodis turi būti bent 8 simbolių su 1 didžiąja raide, 1 mažąja raide ir 1 skaičiumi"
+  },
+  "questions": {
+    "title": "Klausimo pavadinimas",
+    "content": "Klausimo turinys",
+    "submit": "Pateikti klausimą",
+    "submitting": "Pateikiama...",
+    "submitSuccess": "Klausimas sėkmingai pateiktas",
+    "submitError": "Nepavyko pateikti klausimo"
+  }
+} 

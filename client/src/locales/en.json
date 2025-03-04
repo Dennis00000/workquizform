@@ -1,0 +1,511 @@
+{
+  "appName": "QuizForm",
+  "common": {
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "profile": "Profile",
+    "save": "Save",
+    "cancel": "Cancel",
+    "saving": "Saving...",
+    "loading": "Loading...",
+    "welcome": "Welcome to QuizForm",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "home": "Home",
+    "error": "An error occurred",
+    "backToHome": "Back to Home",
+    "close": "Close",
+    "searchUsers": "Search users by name or email",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "submit": "Submit",
+    "search": "Search",
+    "filter": "Filter",
+    "reset": "Reset",
+    "yes": "Yes",
+    "no": "No",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
+    "required": "Required",
+    "optional": "Optional",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "actions": "Actions",
+    "sort": "Sort",
+    "user": "User",
+    "anonymous": "Anonymous",
+    "settings": "Settings",
+    "help": "Help",
+    "about": "About",
+    "viewAll": "View All Templates",
+    "tags": "Categories"
+  },
+  "home": {
+    "hero": {
+      "title": "Create and Share Forms with Ease",
+      "subtitle": "Build beautiful forms and surveys in minutes. Share with your team or the world.",
+      "exploreButton": "Browse Templates",
+      "createButton": "Create Template"
+    },
+    "popularTemplates": "Popular Templates",
+    "templatePlaceholder": "Sample Template"
+  },
+  "templates": {
+    "by": "By",
+    "viewDetails": "View Details",
+    "createNew": "Create New Template",
+    "use": {
+      "emailCopy": "Send me a copy of my responses",
+      "emailPlaceholder": "Enter your email address",
+      "submit": "Submit Response",
+      "submitting": "Submitting...",
+      "submitted": "Response submitted successfully",
+      "thankYou": "Thank you for your response!",
+      "error": {
+        "submitFailed": "Failed to submit response",
+        "validation": {
+          "required": "This field is required",
+          "number": {
+            "invalid": "Please enter a valid number",
+            "min": "Value must be at least {{min}}",
+            "max": "Value must be at most {{max}}"
+          },
+          "text": {
+            "tooLong": "Response must be less than {{max}} characters"
+          },
+          "email": {
+            "invalid": "Please enter a valid email address"
+          },
+          "phone": {
+            "invalid": "Please enter a valid phone number"
+          },
+          "url": {
+            "invalid": "Please enter a valid URL"
+          },
+          "date": {
+            "invalid": "Please enter a valid date",
+            "min": "Date must be after {{min}}",
+            "max": "Date must be before {{max}}"
+          }
+        }
+      }
+    },
+    "preview": "Preview Template",
+    "maxQuestionsReached": "Maximum number of questions (16) reached",
+    "form": {
+      "title": "Template Title",
+      "description": "Description",
+      "topic": "Topic",
+      "tags": "Tags",
+      "tagPlaceholder": "Enter or select a tag",
+      "addTag": "Add Tag",
+      "questions": "Questions",
+      "questionTitle": "Question Title",
+      "questionType": "Question Type",
+      "addQuestion": "Add Question",
+      "create": "Create Template",
+      "validation": {
+        "titleRequired": "Title is required",
+        "titleLength": "Title must be between 3 and 100 characters",
+        "descriptionLength": "Description must be less than 500 characters",
+        "questionTitleRequired": "Question title is required",
+        "questionTitleLength": "Question title must be between 3 and 200 characters",
+        "minQuestions": "Template must have at least one question",
+        "maxQuestions": "Template cannot have more than 16 questions",
+        "duplicateTag": "This tag already exists"
+      },
+      "options": {
+        "label": "Options",
+        "addOption": "Add Option",
+        "optionPlaceholder": "Enter option text",
+        "minOptions": "At least 2 options required",
+        "maxOptions": "Maximum 10 options allowed",
+        "duplicateOption": "This option already exists"
+      },
+      "selectPlaceholder": "Select an option",
+      "privacy": {
+        "label": "Privacy Settings",
+        "public": "Make this template public",
+        "private": "Private - Only accessible to selected users",
+        "users": "Allowed Users",
+        "searchUsers": "Search users to grant access",
+        "removeUser": "Remove user"
+      },
+      "removeTag": "Remove tag"
+    },
+    "topics": {
+      "education": "Education",
+      "quiz": "Quiz",
+      "other": "Other"
+    },
+    "questionTypes": {
+      "string": "Single Line Text",
+      "text": "Multi Line Text",
+      "number": "Number",
+      "checkbox": "Checkbox",
+      "radio": "Multiple Choice",
+      "select": "Dropdown",
+      "date": "Date",
+      "email": "Email",
+      "phone": "Phone Number",
+      "url": "Website URL"
+    },
+    "notFound": "Template not found",
+    "error": {
+      "fetchFailed": "Failed to load template",
+      "notFound": "The template you're looking for doesn't exist",
+      "fetchError": "Failed to fetch templates"
+    },
+    "share": {
+      "button": "Share Template",
+      "title": "Share this template",
+      "link": "Share link",
+      "copy": "Copy",
+      "copied": "Copied!",
+      "twitter": "Share on Twitter",
+      "linkedin": "Share on LinkedIn"
+    },
+    "analytics": {
+      "overview": "Response Overview",
+      "totalResponses": "Total Responses",
+      "completionRate": "Completion Rate",
+      "stats": {
+        "average": "Average",
+        "min": "Minimum",
+        "max": "Maximum",
+        "count": "Response Count",
+        "averageLength": "Average Length"
+      }
+    },
+    "export": {
+      "csv": "Export CSV",
+      "pdf": "Export PDF",
+      "exporting": "Exporting...",
+      "error": "Failed to export responses"
+    },
+    "duplicate": {
+      "button": "Duplicate Template",
+      "success": "Template duplicated successfully",
+      "error": "Failed to duplicate template",
+      "title": "{{title}} (Copy)"
+    },
+    "comments": {
+      "title": "Comments",
+      "placeholder": "Write a comment...",
+      "submit": "Post Comment",
+      "deleted": "Comment deleted",
+      "error": {
+        "fetch": "Failed to load comments",
+        "add": "Failed to add comment",
+        "delete": "Failed to delete comment"
+      }
+    },
+    "likes": {
+      "like": "Like",
+      "unlike": "Unlike",
+      "count": "{{count}} likes",
+      "error": {
+        "add": "Failed to like template",
+        "remove": "Failed to unlike template"
+      }
+    },
+    "title": "Templates",
+    "edit": "Edit Template",
+    "view": "View Template",
+    "use": "Use Template",
+    "delete": "Delete Template",
+    "deleteConfirm": "Are you sure you want to delete this template?",
+    "name": "Template Name",
+    "description": "Description",
+    "topic": "Topic",
+    "isPublic": "Public",
+    "createdBy": "Created by",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "questions": "Questions",
+    "questionText": "Question Text",
+    "questionRequired": "Required",
+    "questionOptions": "Options",
+    "addOption": "Add Option",
+    "removeOption": "Remove Option",
+    "moveUp": "Move Up",
+    "moveDown": "Move Down",
+    "submit": "Submit",
+    "saveSuccess": "Template saved successfully",
+    "deleteSuccess": "Template deleted successfully",
+    "createSuccess": "Template created successfully",
+    "updateSuccess": "Template updated successfully",
+    "noTemplates": "No templates found",
+    "searchPlaceholder": "Search templates...",
+    "filterByTopic": "Filter by topic",
+    "sortBy": "Sort by",
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "popular": "Popular Templates",
+    "latest": "Recently Added Templates",
+    "myTemplates": "My Templates",
+    "publicTemplates": "Public Templates",
+    "submissions": "Submissions",
+    "share": "Share",
+    "copy": "Copy Link",
+    "linkCopied": "Link copied to clipboard"
+  },
+  "auth": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "createAccount": "Create a new account",
+    "loginPrompt": "Already have an account? Sign in",
+    "loginButton": "Sign In",
+    "registerButton": "Sign Up",
+    "registering": "Registering...",
+    "registerError": "Failed to create account",
+    "forgotPassword": "Forgot your password?",
+    "signingIn": "Signing in...",
+    "signInError": "Failed to sign in",
+    "unauthorized": "Please sign in to access this page",
+    "validation": {
+      "nameRequired": "Name is required",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required",
+      "passwordLength": "Password must be at least 8 characters",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "backToLogin": "Back to Login",
+    "resetPassword": {
+      "title": "Reset Password",
+      "description": "Enter your email address and we'll send you a link to reset your password.",
+      "submit": "Send Reset Link",
+      "sending": "Sending...",
+      "success": "Reset link sent successfully",
+      "error": "Failed to send reset link",
+      "checkEmail": "Please check your email for the reset link",
+      "newPassword": "Set New Password",
+      "resetting": "Resetting password...",
+      "successReset": "Password reset successfully",
+      "errorReset": "Failed to reset password"
+    },
+    "signIn": "Sign in to your account",
+    "login": "Login",
+    "register": "Register",
+    "rememberMe": "Remember me",
+    "noAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "loginSuccess": "Logged in successfully",
+    "loginFailed": "Login failed",
+    "registrationSuccess": "Registration successful",
+    "registrationFailed": "Registration failed",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "changePassword": "Change Password",
+    "emailAlreadyInUse": "Email already in use"
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal Information",
+    "name": "Name",
+    "email": "Email",
+    "bio": "Bio",
+    "avatar": "Profile Picture",
+    "changeAvatar": "Change Picture",
+    "removeAvatar": "Remove Picture",
+    "security": "Security",
+    "changePassword": "Change Password",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm New Password",
+    "updateSuccess": "Profile updated successfully",
+    "passwordUpdateSuccess": "Password updated successfully",
+    "role": "Role",
+    "memberSince": "Member Since"
+  },
+  "admin": {
+    "users": {
+      "title": "User Management",
+      "search": "Search users...",
+      "name": "Name",
+      "email": "Email",
+      "status": "Status",
+      "role": "Role",
+      "actions": "Actions",
+      "active": "Active",
+      "inactive": "Inactive",
+      "admin": "Admin",
+      "user": "User",
+      "block": "Block",
+      "unblock": "Unblock",
+      "makeAdmin": "Make Admin",
+      "removeAdmin": "Remove Admin"
+    },
+    "error": {
+      "fetchUsers": "Failed to fetch users",
+      "updateStatus": "Failed to update user status",
+      "updateRole": "Failed to update user role",
+      "selfDemote": "You cannot remove your own admin status"
+    },
+    "success": {
+      "updateStatus": "User status updated successfully",
+      "updateRole": "User role updated successfully"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "templates": "Templates",
+    "about": "About",
+    "dashboard": "Dashboard",
+    "profile": "Profile",
+    "admin": "Admin",
+    "login": "Log In",
+    "register": "Register",
+    "logout": "Log Out"
+  },
+  "sidebar": {
+    "menu": "Menu",
+    "dashboard": "Dashboard",
+    "templates": "My Templates",
+    "createTemplate": "Create Template",
+    "submissions": "Submissions",
+    "profile": "Profile",
+    "admin": "Admin Panel"
+  },
+  "footer": {
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "allRightsReserved": "All rights reserved.",
+    "description": "Create, share, and analyze forms and surveys with ease.",
+    "quickLinks": "Quick Links",
+    "rights": "All rights reserved.",
+    "language": "Language"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "goHome": "Go to Homepage",
+    "contactSupport": "Contact Support"
+  },
+  "errors": {
+    "general": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "validation": "Please check your input and try again.",
+    "server": "Server error. Please try again later."
+  },
+  "dashboard": {
+    "welcome": "Welcome, {{name}}!",
+    "templates": "Templates",
+    "submissions": "Submissions",
+    "responses": "Responses",
+    "recentActivity": "Recent Activity",
+    "noRecentActivity": "No recent activity to display",
+    "quickActions": "Quick Actions",
+    "createTemplate": "Create New Template",
+    "viewSubmissions": "View Submissions",
+    "stats": "Statistics",
+    "overview": "Overview"
+  },
+  "about": {
+    "title": "About QuizForm",
+    "description": "QuizForm is a powerful and intuitive platform designed to help you create engaging forms, surveys, and quizzes with ease.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "Our mission is to simplify the process of creating and managing forms, making it accessible to everyone regardless of technical expertise."
+    },
+    "features": {
+      "title": "Key Features",
+      "item1": "Easy-to-use form builder",
+      "item2": "Real-time collaboration",
+      "item3": "Advanced analytics",
+      "item4": "Customizable templates"
+    },
+    "team": {
+      "title": "About the Developer",
+      "description": "QuizForm was developed by Dennis Opoola, a frontend developer committed to creating user-friendly applications that solve real-world problems."
+    }
+  },
+  "help": {
+    "title": "Help Center",
+    "gettingStarted": {
+      "title": "Getting Started",
+      "description": "Learn how to make the most of QuizForm with our quick start guide.",
+      "step1": "Create an account or sign in",
+      "step2": "Create your first form using our templates",
+      "step3": "Share your form and collect responses"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How do I create a new form?",
+      "a1": "Click the 'Create Template' button in your dashboard and choose from our templates or start from scratch.",
+      "q2": "Can I share my forms with others?",
+      "a2": "Yes, you can share your forms via a link or embed them on your website.",
+      "q3": "How do I view responses?",
+      "a3": "Access your form's responses in the 'Submissions' section of your dashboard."
+    },
+    "support": {
+      "title": "Need More Help?",
+      "description": "Contact our support team for assistance."
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: May 15, 2024",
+    "introduction": {
+      "title": "Introduction",
+      "content": "At QuizForm, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information."
+    },
+    "dataCollection": {
+      "title": "Information We Collect",
+      "description": "We collect information that you provide directly to us when you:",
+      "item1": "Create an account",
+      "item2": "Create forms or surveys",
+      "item3": "Respond to forms or surveys",
+      "item4": "Contact our support team"
+    },
+    "dataUse": {
+      "title": "How We Use Your Information",
+      "content": "We use your information to provide, maintain, and improve our services, process transactions, and communicate with you."
+    },
+    "dataSecurity": {
+      "title": "Data Security",
+      "content": "We implement appropriate security measures to protect your personal information."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions about our Privacy Policy, please contact us."
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: May 15, 2024",
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By accessing or using QuizForm, you agree to be bound by these Terms of Service."
+    },
+    "services": {
+      "title": "Services",
+      "description": "QuizForm provides the following services:",
+      "item1": "Form creation and management",
+      "item2": "Response collection and analysis",
+      "item3": "Template sharing and collaboration"
+    },
+    "userObligations": {
+      "title": "User Obligations",
+      "content": "You are responsible for maintaining the security of your account and any content you create or share."
+    },
+    "intellectualProperty": {
+      "title": "Intellectual Property",
+      "content": "You retain ownership of your content, but grant us a license to use it to provide our services."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have questions about these Terms, please contact us."
+    }
+  }
+} 
